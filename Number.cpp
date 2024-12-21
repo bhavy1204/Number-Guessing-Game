@@ -8,44 +8,40 @@ using namespace std;
 
 class numberGame
 {
-    int n, guess, hint;
+    int n, guess, hint,lives=3,range;
 
 public:
-    int easy()
+    int RandomNumber(int range)
     {
-        srand(time(0));
-        n = rand() % 10;
-        cout << n << endl;
-        return n;
-    }
-    int moderate()
-    {
-        srand(time(0));
-        n = rand() % 100;
-        cout << n << endl;
-        return n;
-    }
-    int hard()
-    {
-        srand(time(0));
-        n = rand() % 1000;
+        n = rand() % range;
         cout << n << endl;
         return n;
     }
     void getUserNum()
     {
+
         cout << "Enter >> ";
         cin >> guess;
     }
     bool check()
     {
-        return n == guess ? true : false;
+        if (n==guess){
+            cout<<"You won the game !! "<<endl;
+            return true;
+        }else{
+            if (guess<n)
+                cout<<"HINT : The number is higher "<<endl;
+            else if(n>guess)
+                cout<<"HINT : The number is lower "<<endl;
+            return false;
+        }   
     }
 };
 
 int main()
 {
     system("cls");
+    srand(time(0));
     int mode, life;
     numberGame n;
     do
@@ -60,8 +56,7 @@ int main()
         switch (mode)
         {
         case 1:
-            n.easy();
-            life=3;
+            n.RandomNumber(10);
             while (life != 0)
             {
                 n.getUserNum();
@@ -76,8 +71,7 @@ int main()
             }
             break;
         case 2:
-            n.moderate();
-            life=3;
+            n.RandomNumber(100);
             while (life != 0)
             {
                 n.getUserNum();
@@ -92,8 +86,7 @@ int main()
             }
             break;
         case 3:
-            n.hard();
-            life=3;
+            n.RandomNumber(1000);
             while (life != 0)
             {
                 n.getUserNum();
