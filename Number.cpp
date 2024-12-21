@@ -46,7 +46,7 @@ public:
 int main()
 {
     system("cls");
-    int mode;
+    int mode, life = 3;
     numberGame n;
     do
     {
@@ -61,20 +61,27 @@ int main()
         {
         case 1:
             n.easy();
+            while (life != 0)
+            {
+                n.getUserNum();
+                cout << n.check();
+                life--;
+            }
             break;
         case 2:
             n.moderate();
+            n.getUserNum();
+            cout << n.check();
             break;
         case 3:
             n.hard();
+            n.getUserNum();
+            cout << n.check();
             break;
         default:
             cout << "Invalid choice" << endl;
             break;
         }
     } while (mode != 4);
-
-    n.getUserNum();
-    cout << n.check();
     return 0;
 }
