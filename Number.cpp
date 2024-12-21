@@ -57,6 +57,7 @@ int main()
         {
         case 1:
             n.RandomNumber(10);
+            life=3;
             while (life != 0)
             {
                 n.getUserNum();
@@ -72,6 +73,7 @@ int main()
             break;
         case 2:
             n.RandomNumber(100);
+            life =3;
             while (life != 0)
             {
                 n.getUserNum();
