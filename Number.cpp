@@ -1,14 +1,13 @@
 #include <iostream>
 #include <stdlib.h>
-#include <fstream>
-#include <string>
 #include <cstdlib>
 #include <iomanip>
+
 using namespace std;
 
 class numberGame
 {
-    int n, guess, lives = 3, range;
+    int n, guess, range;
 
 public:
     int RandomNumber(int range)
@@ -19,6 +18,7 @@ public:
     }
     bool PlayGame()
     {
+        int lives =3;
         do
         {
             cout << "Enter your guess >> ";
@@ -29,9 +29,9 @@ public:
                 return true;
             }
             else if (guess < n)
-                cout << "Wrong answe !!\nHINT : The number is higher " << endl;
+                cout << "Wrong answer !!\nHINT : The number is higher " << endl;
             else if (guess > n)
-                cout << "Wrong answe !!\nHINT : The number is lower " << endl;
+                cout << "Wrong answer !!\nHINT : The number is lower " << endl;
             lives--;
             if (lives == 0)
             {
