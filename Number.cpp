@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <cstdlib>
 #include <iomanip>
+#include <limits>
 
 using namespace std;
 
@@ -18,11 +19,23 @@ public:
     }
     bool PlayGame()
     {
-        int lives =3;
+        int lives = 3;
         do
         {
             cout << "Enter your guess >> ";
-            cin >> guess;
+            while (true)
+            {
+                cin >> guess;
+                if (cin.fail())
+                {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "Invalid input. Please enter a valid number :";
+                }
+                else
+                    break;
+            }
+
             if (n == guess)
             {
                 cout << "You won the game !! " << endl;
@@ -40,13 +53,17 @@ public:
             }
         } while (lives != 0);
     }
+    void play(int n){
+        RandomNumber(n);
+        PlayGame();
+    }
 };
 
 int main()
 {
     system("cls");
     srand(time(0));
-    char choice;
+    int choice;
     numberGame n;
     cout << "~~~ WELCOME TO GAME ~~~" << endl;
     do
@@ -58,28 +75,37 @@ int main()
         cout << "3. Hard" << endl;
         cout << "4. exit game" << endl;
         cin >> choice;
+        while (true)
+        {
+            if (cin.fail())
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Please enter a valid number : ";
+            }
+            else
+                break;
+        }
+
         cout << "-----------------------------------------------------" << endl;
         switch (choice)
         {
-        case '1':
-            n.RandomNumber(10);
-            n.PlayGame();
+        case 1:
+            n.play(10);
             break;
-        case '2':
-            n.RandomNumber(100);
-            n.PlayGame();
+        case 2:
+            n.play(100);
             break;
-        case '3':
-            n.RandomNumber(1000);
-            n.PlayGame();
+        case 3:
+            n.play(1000);
             break;
-        case '4':
+        case 4:
             cout << "Bye Bye !! " << endl;
             break;
         default:
             cout << "Invalid choice" << endl;
             break;
         }
-    } while (choice != '4');
+    } while (choice != 4);
     return 0;
 }
