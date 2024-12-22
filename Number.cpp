@@ -28,17 +28,16 @@ public:
         }
         else if (guess < n)
         {
-            cout << "HINT : The number is higher " << endl;
+            cout << "Wrong answe !!\nHINT : The number is higher " << endl;
             return false;
         }
-        else if (n > guess)
+        else if (guess > n)
         {
-            cout << "HINT : The number is lower " << endl;
+            cout << "Wrong answe !!\nHINT : The number is lower " << endl;
             return false;
         }
     }
-}
-;
+};
 
 int main()
 {
