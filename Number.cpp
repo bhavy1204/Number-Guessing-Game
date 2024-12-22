@@ -8,7 +8,7 @@ using namespace std;
 
 class numberGame
 {
-    int n, guess, hint,lives=3,range;
+    int n, guess, hint, lives = 3, range;
 
 public:
     int RandomNumber(int range)
@@ -17,26 +17,28 @@ public:
         cout << n << endl;
         return n;
     }
-    void getUserNum()
+    bool PlayGame()
     {
-
-        cout << "Enter >> ";
+        cout << "Enter your guess >> ";
         cin >> guess;
-    }
-    bool check()
-    {
-        if (n==guess){
-            cout<<"You won the game !! "<<endl;
+        if (n == guess)
+        {
+            cout << "You won the game !! " << endl;
             return true;
-        }else{
-            if (guess<n)
-                cout<<"HINT : The number is higher "<<endl;
-            else if(n>guess)
-                cout<<"HINT : The number is lower "<<endl;
+        }
+        else if (guess < n)
+        {
+            cout << "HINT : The number is higher " << endl;
             return false;
-        }   
+        }
+        else if (n > guess)
+        {
+            cout << "HINT : The number is lower " << endl;
+            return false;
+        }
     }
-};
+}
+;
 
 int main()
 {
@@ -57,28 +59,21 @@ int main()
         {
         case 1:
             n.RandomNumber(10);
-            life=3;
+            life = 3;
             while (life != 0)
             {
-                n.getUserNum();
-                if (n.check() == 0)
-                    cout << "Try again you are close"<<endl;
-                else
-                {
-                    cout << " You won " << endl;
-                    break;
-                }
+                n.PlayGame();
                 life--;
             }
             break;
         case 2:
             n.RandomNumber(100);
-            life =3;
+            life = 3;
             while (life != 0)
             {
-                n.getUserNum();
-                if (n.check() == 0)
-                    cout << "Try again you are close"<<endl;
+                n.PlayGame();
+                if (n.PlayGame() == 0)
+                    cout << "Try again you are close" << endl;
                 else
                 {
                     cout << " You won " << endl;
@@ -91,9 +86,9 @@ int main()
             n.RandomNumber(1000);
             while (life != 0)
             {
-                n.getUserNum();
-                if (n.check() == 0)
-                    cout << "Try again you are close"<<endl;
+                n.PlayGame();
+                if (n.PlayGame() == 0)
+                    cout << "Try again you are close" << endl;
                 else
                 {
                     cout << " You won " << endl;
@@ -103,7 +98,7 @@ int main()
             }
             break;
         case 4:
-            cout<<"Bye Bye !! "<<endl;
+            cout << "Bye Bye !! " << endl;
             break;
         default:
             cout << "Invalid choice" << endl;
