@@ -24,20 +24,20 @@ To get a local copy up and running, follow these simple steps.
 1. **Clone the Repository**:  
 
 ```bash
-   `git clone https://github.com/bhavy1204/Number-Guessing-Game.git`  
-   `cd Number-Guessing-Game`
+   git clone https://github.com/bhavy1204/Number-Guessing-Game.git
+   cd Number-Guessing-Game
 ```
 
 2. **Compile the Program**:  
 
 ```bash
-   `g++ -o NumberGuessingGame Number.cpp`
+   g++ -o NumberGuessingGame Number.cpp
 ```
 
 3. **Run the Game**:  
 
 ```bash
-   `./NumberGuessingGame`
+   ./NumberGuessingGame
 ```
 
 ## How to Play
