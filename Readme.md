@@ -2,6 +2,7 @@
 
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)  
 
 Welcome to the Number Guessing Game! This C++ console application challenges players to guess a randomly generated number, offering various difficulty levels to keep things interesting. The game is designed to handle all types of valid user input robustly, ensuring a smooth and enjoyable experience.
 
